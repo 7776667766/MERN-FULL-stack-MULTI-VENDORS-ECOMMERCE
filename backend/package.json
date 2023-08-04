@@ -5,10 +5,12 @@
   "main": "server.js",
   "engines": {
     "node": "18.x"
+
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false"
   },
   "author": "shahriar Sajeeb",
   "license": "ISC",
