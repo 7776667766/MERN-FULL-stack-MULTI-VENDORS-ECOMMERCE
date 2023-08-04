@@ -7,11 +7,8 @@ const cors = require("cors");
 require('dotenv').config();
 const path =require("path")
 
-app.use(cors({
-  origin: ['https://mern-full-stack-multi-vendors-ecommerce.vercel.app',],
-  credentials: true
-}));
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/test", (req, res) => {
