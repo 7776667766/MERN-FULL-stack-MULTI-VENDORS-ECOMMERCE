@@ -20,6 +20,8 @@ const AllProducts = () => {
 
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
+
+    console.log(id)
     window.location.reload();
   };
 
@@ -97,7 +99,7 @@ const AllProducts = () => {
       row.push({
         id: item._id,
         name: item.name,
-        price: "US$ " + item.discountPrice,
+        price: "pkr" + item.discountPrice,
         Stock: item.stock,
         sold: item?.sold_out,
       });

@@ -100,10 +100,13 @@ const AllWithdraw = () => {
         id: item._id,
         shopId: item.seller._id,
         name: item.seller.name,
-        amount: "US$ " + item.amount,
+        amount: "Pkr" + item.amount,
         status: item.status,
         createdAt: item.createdAt.slice(0, 10),
+
       });
+
+      console.log(data)
     });
   return (
     <div className="w-full flex items-center pt-5 justify-center">

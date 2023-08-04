@@ -74,34 +74,61 @@ router.get(
 );
 
 // delete product of a shop
+// router.delete(
+//   "/delete-shop-product/:id",
+//   isSeller,
+//   catchAsyncErrors(async (req, res, next) => {
+//     try {
+//       const product = await Product.findById(req.params.id).exec(); // Add .exec() here
+
+//       console.log("Fetched product:", product);
+
+//       if (!product) {
+//         return next(new ErrorHandler("Product is not found with this id", 404));
+//       }
+
+//       // ... rest of the code remains unchanged
+//     } catch (error) {
+//       return next(new ErrorHandler(error, 400));
+//     }
+//   })
+// );
+
 router.delete(
   "/delete-shop-product/:id",
   isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const product = await Product.findById(req.params.id);
+      const product = await Product.findById(req.params.id).exec();
+
+      console.log("Fetched product:", product);
 
       if (!product) {
         return next(new ErrorHandler("Product is not found with this id", 404));
-      }    
-
-      for (let i = 0; 1 < product.images.length; i++) {
-        const result = await cloudinary.v2.uploader.destroy(
-          product.images[i].public_id
-        );
       }
-    
-      await product.remove();
+
+      for (let i = 0; i < product.images.length; i++) {
+        const result = await cloudinary.v2.uploader.destroy(product.images[i].public_id);
+        console.log("Image deleted:", result);
+      }
+
+      await Product.deleteOne({ _id: req.params.id }); // Use deleteOne() to remove the product
+
+      console.log("Product deleted successfully!");
 
       res.status(201).json({
         success: true,
         message: "Product Deleted successfully!",
       });
     } catch (error) {
+      console.error("Error deleting product:", error);
+
       return next(new ErrorHandler(error, 400));
     }
   })
 );
+
+
 
 // get all products
 router.get(

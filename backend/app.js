@@ -4,9 +4,11 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require('dotenv').config();
+
 
 app.use(cors({
-  origin: ['https://eshop-tutorial-pyri.vercel.app',],
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 

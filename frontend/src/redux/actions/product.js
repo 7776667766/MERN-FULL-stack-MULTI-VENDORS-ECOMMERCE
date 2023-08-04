@@ -85,6 +85,7 @@ export const deleteProduct = (id) => async (dispatch) => {
       payload: data.message,
     });
   } catch (error) {
+    console.log(error)
     dispatch({
       type: "deleteProductFailed",
       payload: error.response.data.message,
