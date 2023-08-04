@@ -5,16 +5,16 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require('dotenv').config();
-
+const path =require("path")
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://mern-full-stack-multi-vendors-ecommerce-376a.vercel.app/',
   credentials: true
 }));
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", (req, res) => {
+app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 
