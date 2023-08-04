@@ -8,7 +8,7 @@ require('dotenv').config();
 const path =require("path")
 
 app.use(cors({
-  origin: ['https://mern-full-stack-multi-vendors-ecommerce-9kkyfojle-7776667766.vercel.app',],
+  origin: ['https://mern-full-stack-multi-vendors-ecommerce.vercel.app',],
   credentials: true
 }));
 
