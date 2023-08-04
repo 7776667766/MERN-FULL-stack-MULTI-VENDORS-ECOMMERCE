@@ -8,13 +8,13 @@ require('dotenv').config();
 const path =require("path")
 
 app.use(cors({
-  origin: 'https://mern-full-stack-multi-vendors-ecommerce.vercel.app/',
+  origin: ['https://mern-full-stack-multi-vendors-ecommerce.vercel.app/',],
   credentials: true
 }));
 
 app.use(express.json());
 app.use(cookieParser());
-app.use('/test', (req, res) => {
+app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 
