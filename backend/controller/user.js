@@ -35,7 +35,7 @@ router.post("/create-user", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://mern-full-stack-multi-vendors-ecommerce-376a.vercel.app/activation/${activationToken}`;
+    const activationUrl = `https://mern-full-stack-multi-vendors-ecommerce.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({

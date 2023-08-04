@@ -39,7 +39,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://mern-full-stack-multi-vendors-ecommerce-376a.vercel.app/seller/activation/${activationToken}`;
+    const activationUrl = `https://mern-full-stack-multi-vendors-ecommerce.vercel.app/seller/activation/${activationToken}`;
 
     try {
       await sendMail({
